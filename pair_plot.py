@@ -1,11 +1,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 def main():
     my_data = pd.read_csv('datasets/dataset_train.csv')
-    x = my_data.loc[:, 'Arithmancy':'Flying']
+    x = my_data.loc[:, 'Hogwarts House':'Flying']
 
-    pd.plotting.scatter_matrix(x, s=2, alpha=0.8)
+    sns.pairplot(data = x, hue = 'Hogwarts House')
     plt.show()
 
 if __name__ == '__main__':
